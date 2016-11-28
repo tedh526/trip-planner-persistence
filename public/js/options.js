@@ -22,10 +22,11 @@ $(function () {
         url: '/options'
     })
         .then(function (attractions) {
+            console.log(attractions)
             attractionsModule.setAttractions(attractions);
-            attractions.hotels.forEach(makeOption, $hotelSelect);
-            attractions.restaurants.forEach(makeOption, $restaurantSelect);
-            attractions.activities.forEach(makeOption, $activitySelect);
+            attractionsModule.libraryOfAttractions.hotels.forEach(makeOption, $hotelSelect);
+            attractionsModule.libraryOfAttractions.restaurants.forEach(makeOption, $restaurantSelect);
+            attractionsModule.libraryOfAttractions.activities.forEach(makeOption, $activitySelect);
         })
         .catch(utilsModule.logErr);
 

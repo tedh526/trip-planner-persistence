@@ -36,8 +36,8 @@ var attractionsModule = (function () {
       libraryOfAttractions.hotels = attractions.hotels.map(attractionModule.create);
       libraryOfAttractions.restaurants = attractions.restaurants.map(attractionModule.create);
       libraryOfAttractions.activities = attractions.activities.map(attractionModule.create);
-    }
-
+    },
+    libraryOfAttractions: libraryOfAttractions
   };
 
   return publicAPI;
