@@ -44,7 +44,7 @@ var tripModule = (function () {
 
         $addButton.on('click', function () {
 
-            // JOE SAYS #2
+            // JOE SAYS #2 DONE
             // Make a POST request with AJAX to the backend here
             // to add a new day to the database
             // Don't forget to include the number of the day in the request body!

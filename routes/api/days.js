@@ -68,6 +68,7 @@ router.param('dayId', function (req, res, next, theDayId) {
 // Register a hotel to a day
 // /days/2/hotel
 router.put('/:dayId/hotel', function (req, res, next) {
+  console.log('hotel route firing');
     req.day.setHotel(req.body.hotelId)
         .then(function (day) {
             res.sendStatus(204);
@@ -77,7 +78,9 @@ router.put('/:dayId/hotel', function (req, res, next) {
 // Register a restaurant to a day
 // /days/2/restaurants
 
-router.put('/:dayId/restaurants', function (req, res, next) {
+router.put('/:dayId/restaurant', function (req, res, next) {
+  console.log('REQ', req)
+
     req.day.addRestaurant(req.body.restaurantId)
         .then(function () {
             res.sendStatus(204);
@@ -87,7 +90,7 @@ router.put('/:dayId/restaurants', function (req, res, next) {
 
 // Register an activity to a day
 
-router.put('/:dayId/activities', function (req, res, next) {
+router.put('/:dayId/activity', function (req, res, next) {
     req.day.addActivity(req.body.activityId)
         .then(function () {
             res.sendStatus(204);

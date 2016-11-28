@@ -107,6 +107,23 @@ var dayModule = (function () {
         // meaning you are using the correct data structure (req.body)
         // hitting the right URL, etc.
         // Call the following function after your server responds:
+
+        console.log('this.number: ', typeof this.number);
+
+        let url = `/days/${this.number}/${attraction.type}`
+        console.log('URL', url)
+
+
+        $.ajax({
+          url: url,
+          method: "PUT",
+          data: attraction.id
+        })
+        .then(function(updatedDay){
+          doThisAfterServerHasAddedAttraction()
+        })
+        .catch(utilsModule.logErr)
+
         var doThisAfterServerHasAddedAttraction = function () {
             attraction.show();
         };

@@ -22,7 +22,6 @@ $(function () {
         url: '/options'
     })
         .then(function (attractions) {
-            console.log(attractions)
             attractionsModule.setAttractions(attractions);
             attractionsModule.libraryOfAttractions.hotels.forEach(makeOption, $hotelSelect);
             attractionsModule.libraryOfAttractions.restaurants.forEach(makeOption, $restaurantSelect);
