@@ -10,6 +10,7 @@ var Activity = require('../../models/activity');
 // -- Day specific
 
 // Get all days with attraction information
+// to put into itinerary
 // /days
 router.get('/', function (req, res, next) {
     Day.findAll({
@@ -17,6 +18,8 @@ router.get('/', function (req, res, next) {
         order: 'number ASC'
     })
         .then(function (days) {
+          console.log('DAYS', days)
+
             res.send(days);
         })
         .catch(next);

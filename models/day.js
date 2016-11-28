@@ -1,7 +1,7 @@
-var Sequelize = require('sequelize');
-var db = require('./_db');
+const Sequelize = require('sequelize');
+const db = require('./_db');
 
-var Day = db.define('day', {
+const Day = db.define('day', {
     number: {
         type: Sequelize.INTEGER,
         allowNull: false
@@ -10,6 +10,8 @@ var Day = db.define('day', {
    hooks: {
        beforeDestroy: function (dayBeingDestroyed) {
             // Maybe this hook could help?
+            // we will  need to remove day's rows on
+            // join tables day_activities and day_restaurants
        }
    }
 });
