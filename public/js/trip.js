@@ -50,6 +50,17 @@ var tripModule = (function () {
             // Don't forget to include the number of the day in the request body!
             // You can get the day number you need with `days.length + 1`
             // Call this function when the server responds with the createdDay.
+            let data = {number: days.length + 1}
+            $.ajax({
+                url: '/days',
+                type: "POST",
+                data: data
+                })
+            .then(function(newDay) {
+                doThisWithCreatedDayFromServer(newDay);
+            })
+            .catch(utilsModule.logErr)
+
             var doThisWithCreatedDayFromServer = function (createdDay) {
                 addDay(createdDay);
             };
@@ -107,10 +118,17 @@ var tripModule = (function () {
             // Ask the server for the days by GET requesting /days.
             // Call the following function when the server responds
             // with the days.
+
             var doThisWhenServerGivesDaysBack = function (daysFromServer) {
                 daysFromServer.forEach(addDay);
                 switchTo(days[0]);
             };
+
+            $.get('/days')
+            .then(function(foundDays) {
+                doThisWhenServerGivesDaysBack(foundDays);
+            })
+            .catch(utilsModule.logErr)
 
         },
 
@@ -122,7 +140,8 @@ var tripModule = (function () {
 
         removeFromCurrent: function (attraction) {
             currentDay.removeAttraction(attraction);
-        }
+        },
+        days:days
 
     };
 

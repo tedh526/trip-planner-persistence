@@ -19,7 +19,6 @@ router.get('/', function (req, res, next) {
     })
         .then(function (days) {
           console.log('DAYS', days)
-
             res.send(days);
         })
         .catch(next);
@@ -28,7 +27,6 @@ router.get('/', function (req, res, next) {
 // Create a new day with no attractions
 // POST /days
 router.post('/', function (req, res, next) {
-
     Day.create(req.body)
         .then(function (createdDay) {
             res.status(201).send(createdDay);
@@ -64,6 +62,8 @@ router.param('dayId', function (req, res, next, theDayId) {
         })
         .catch(next);
 });
+
+
 
 // Register a hotel to a day
 // /days/2/hotel
