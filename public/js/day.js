@@ -116,8 +116,8 @@ var dayModule = (function () {
 
         $.ajax({
           url: url,
-          method: "PUT",
-          data: attraction.id
+          type: "PUT",
+          data: {attraction: attraction.id}
         })
         .then(function(updatedDay){
           doThisAfterServerHasAddedAttraction()
